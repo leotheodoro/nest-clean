@@ -1,5 +1,4 @@
 import {
-  ConflictException,
   Body,
   Controller,
   Post,
@@ -8,7 +7,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
-import { compare, hash } from 'bcryptjs'
+import { compare } from 'bcryptjs'
 import { ZodValidationPipe } from 'src/pipes/zod-validation-pipe'
 import { PrismaService } from 'src/prisma/prisma.service'
 import { z } from 'zod'

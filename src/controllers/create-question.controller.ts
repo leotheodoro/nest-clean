@@ -10,7 +10,9 @@ import {
 import { JwtService } from '@nestjs/jwt'
 import { AuthGuard } from '@nestjs/passport'
 import { compare } from 'bcryptjs'
+import { CurrentUser } from 'src/auth/current-user-decorator'
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
+import { UserPayload } from 'src/auth/jwt.strategy'
 import { ZodValidationPipe } from 'src/pipes/zod-validation-pipe'
 import { PrismaService } from 'src/prisma/prisma.service'
 import { z } from 'zod'
@@ -33,7 +35,7 @@ export class CreateQuestionController {
   @Post()
   @HttpCode(201)
   // @UsePipes(new ZodValidationPipe(authenticateBodySchema))
-  async handle() {
+  async handle(@CurrentUser() user: UserPayload) {
     return 'ok'
   }
 }

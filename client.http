@@ -33,3 +33,10 @@ Authorization: Bearer {{authToken}}
   "title": "Nova pergunta",
   "content": "lorem ipsum"
 }
+
+###
+
+# @name fetch_questions
+GET {{baseUrl}}/questions
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
